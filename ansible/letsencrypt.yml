@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Update cache
+      apt: update_cache=yes cache_valid_time=3600
+
+    - name: Install lets encrypt repo
+      git:
+        repo: https://github.com/letsencrypt/letsencrypt
+        accept_hostkey: yes
+        clone: yes
+        depth: 1
+        dest: /opt/letsencrypt
+        version: v0.4.2
+
+#  - name: Get the certificate from the webroot
+#    command: gi
+#
+#    "{{ letsencrypt_venv }}/bin/letsencrypt --agree-tos --text {% for domain in letsencrypt_cert_domains %}-d {{ domain }} {% endfor %}--email {{ letsencrypt_email }} {% if letsencrypt_server is defined %}--server {{ letsencrypt_server }}{% endif %} --expand"
+#      letsencrypt_renewal_frequency:
+#        day: "*"
+#        hour: 0
+#        minute: 0

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    shell: vault server -config /data/vaultConfig.hcl
+
+#export VAULT_ADDR=http://127.0.0.1:8200
+
+
+
