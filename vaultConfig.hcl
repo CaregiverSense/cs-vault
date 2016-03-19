@@ -4,7 +4,9 @@ backend "file" {
 
 listener "tcp" {
   address = "0.0.0.0:8200"
-  tls_disable = 1
+  tls_disable = false
+  tls_cert_file = "/etc/letsencrypt/live/vault.caregiversense.com/cert.pem"
+  tls_key_file = "/etc/letsencrypt/live/vault.caregiversense.com/privkey.pem"
 }
 
 disable_mlock = true

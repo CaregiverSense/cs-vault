@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+
+    # Checkout letsencrypt
+    git: bare=yes depth=1 dest=/opt/letsencrypt repo=https://github.com/letsencrypt/letsencrypt
+
+
+
+    # shell: vault server -config /data/vaultConfig.hcl
